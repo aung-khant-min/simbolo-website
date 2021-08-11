@@ -1,0 +1,34 @@
+import Head from 'next/head'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
+export default function About() {
+    return (
+        <div className="flex flex-col justify-between min-h-screen bg-white">
+            <Head>
+                <title>Símbolo - Contact</title>
+                <meta name="description" content="Simbolo - AI & IT school in Myanmar" />
+            </Head>
+            <div>
+                {/* Header Navigation Section */}
+                <Header />
+
+                {/* Contact Section */}
+                <div className="px-8 py-8">
+                    <h2 className="my-10 xl:my-20 text-center font-black text-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
+                        We'd love to hear from you
+                    </h2>
+                    <p className="text-center font-medium text-black text-lg md:text-xl tracking-wide max-w-xl m-auto">
+                        Drop an email at <a href="mailto:simboloit@gmail.com" style={{ color: "blue" }}>simboloit@gmail.com</a> or
+                        <br /><br />Call <a href="tel:+959951716847" style={{ color: "blue" }}>+959951716847</a>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {/* Footer Section */}
+                <Footer />
+            </div>
+        </div>
+    )
+}
