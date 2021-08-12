@@ -44,7 +44,7 @@ export default function Course() {
                         Course Details
                     </h3>
                     <div className="max-w-6xl m-auto">
-                        <p className="m-auto w-5/6 md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
+                        <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore
                         </p>
                     </div>
@@ -54,14 +54,14 @@ export default function Course() {
                         <h3 className="font-black mt-10 mb-5 text-black text-lg md:text-xl text-center tracking-wide">
                             Instrustor: Phyo Thu Htet
                         </h3>
-                        <p className="m-auto w-5/6 md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
+                        <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                         </p>
                     </div>
                     {/* More Info */}
-                    <div className="m-auto w-5/6 md:w-2/3 mt-10 bg-gray text-center py-10 px-5 space-y-5 rounded-2xl
+                    <div className="m-auto w-full md:w-2/3 mt-10 bg-gray text-center py-10 px-5 space-y-5 rounded-2xl
                     font-black text-black text-lg md:text-xl tracking-wide">
-                        <h3>Course fee: 30000 MMKs.  Estimated Duration: 2 Months</h3>
+                        <h3>Course fee: 30000 MMKs. Estimated Duration: 2 Months</h3>
                         <h3>Time: Every Saturday, Sunday (9am - 10:30am)</h3>
                         <h3>Next Batch will be opened soon. Please fill <a href="#" target="_blank" style={{ color: "blue", textDecoration: "underline" }}>this form</a> to register.</h3>
                     </div>

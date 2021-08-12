@@ -12,6 +12,7 @@ export default function Home() {
         <title>Símbolo - Home</title>
         <meta name="description" content="Simbolo - AI & IT school in Myanmar" />
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="/social-share.png" />
       </Head>
       <div>
         {/* Header Navigation Section */}

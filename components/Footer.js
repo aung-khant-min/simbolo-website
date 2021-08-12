@@ -7,13 +7,13 @@ function Footer() {
                 <div className="w-72 lg:w-96 text-center lg:text-left">&copy; Símbolo {new Date().getFullYear()}</div>
                 <div className="flex justify-between lg:justify-evenly w-56 lg:w-96 my-8 lg:my-auto">
                     <a href="#" target="_blank">
-                        <img src="/assets/facebook.svg" alt="Facebook" />
+                        <img src="/assets/facebook.svg" alt="Facebook" className="w-10" />
                     </a>
                     <a href="#" target="_blank">
-                        <img src="/assets/linkedin.svg" alt="LinkedIn" />
+                        <img src="/assets/linkedin.svg" alt="LinkedIn" className="w-10" />
                     </a>
                     <a href="#" target="_blank">
-                        <img src="/assets/youtube.svg" alt="YouTube" />
+                        <img src="/assets/youtube.svg" alt="YouTube" className="w-14" />
                     </a>
                 </div>
                 <div className="flex justify-between lg:justify-evenly w-72 lg:w-96 underline">

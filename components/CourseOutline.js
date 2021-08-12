@@ -2,7 +2,7 @@
 function CourseOutline({ name = "", items = [], open = false }) {
 
     return (
-        <details open={open} className="m-auto bg-gray  w-5/6 md:w-2/3  outline-none border-black border">
+        <details open={open} className="m-auto bg-gray w-full md:w-2/3  outline-none border-black border">
             <summary className="p-7 py-7 font-black text-black text-lg md:text-xl  tracking-wide outline-none cursor-pointer">
                 {name}
             </summary>
