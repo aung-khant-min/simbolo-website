@@ -16,7 +16,7 @@ export default function Home({ feedbacks }) {
     <div className="flex flex-col justify-between min-h-screen bg-gray">
       <Head>
         <title>Símbolo - Home</title>
-        <meta name="description" content="Simbolo - AI & IT school in Myanmar" />
+        <meta name="description" content="Símbolo - AI & IT school in Myanmar" />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:image" content="/social-share.png" />
       </Head>

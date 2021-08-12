@@ -11,7 +11,8 @@ export default function About() {
         <div className="flex flex-col justify-between min-h-screen bg-white">
             <Head>
                 <title>Símbolo - Contact</title>
-                <meta name="description" content="Simbolo - AI & IT school in Myanmar" />
+                <meta name="description" content="Símbolo - AI & IT school in Myanmar" />
+                <meta property="og:image" content="/social-share.png" />
             </Head>
             <div>
                 {/* Header Navigation Section */}
