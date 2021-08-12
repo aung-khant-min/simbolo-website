@@ -34,7 +34,7 @@ export default function Course({ course }) {
         <div className="flex flex-col justify-between min-h-screen bg-gray">
             <Head>
                 <title>Símbolo - {title}</title>
-                <meta property="og:image" content="/social-share.png" />
+                <meta property="og:image" content="../social-share.png" />
             </Head>
             <div>
                 {/* Header Navigation Section */}
