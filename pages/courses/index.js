@@ -3,8 +3,14 @@ import Header from '../../components/Header'
 import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import Course from '../../components/Course'
+import client from '../../client'
 
-export default function Courses() {
+export async function getStaticProps() {
+    const courses = await client.fetch(`*[_type == "course"] {title, slug, description} | order(_createdAt desc)`)
+    return { props: { courses } }
+}
+
+export default function Courses({ courses }) {
     return (
         <div className="flex flex-col justify-between min-h-screen bg-gray">
             <Head>
@@ -26,12 +32,9 @@ export default function Courses() {
                         </h3>
                     </div>
                     <div className="space-y-10">
-                        <Course name="Artificial Intelligence Course" description="A Myanmar(Burma) based AI and IT training school.
-              We provide best quality courses. Learn more about us." slug="artificial-intelligence-course" />
-                        <Course name="Artificial Intelligence Course" description="A Myanmar(Burma) based AI and IT training school.
-              We provide best quality courses. Learn more about us." slug="artificial-intelligence-course" />
-                        <Course name="Artificial Intelligence Course" description="A Myanmar(Burma) based AI and IT training school.
-              We provide best quality courses. Learn more about us." slug="artificial-intelligence-course" />
+                        {
+                            courses.map(course => <Course key={course.slug} name={course.title} description={course.description} slug={course.slug} />)
+                        }
                     </div>
                 </div>
             </div>

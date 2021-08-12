@@ -4,8 +4,14 @@ import Link from 'next/link'
 import Feedback from '../components/Feedback'
 import GetInTouch from '../components/GetInTouch'
 import Footer from '../components/Footer'
+import client from '../client'
 
-export default function Home() {
+export async function getStaticProps() {
+  const feedbacks = await client.fetch(`*[_type == "feedback"] {"image": image.asset -> url, ...} | order(_createdAt desc)`)
+  return { props: { feedbacks } }
+}
+
+export default function Home({ feedbacks }) {
   return (
     <div className="flex flex-col justify-between min-h-screen bg-gray">
       <Head>
@@ -99,10 +105,9 @@ export default function Home() {
               What Students Say:
             </h2>
             <div className="space-y-10">
-              <Feedback image="/assets/avatar.svg" name="Kyaw Kyaw" feedback="A Myanmar(Burma) based AI and IT training school.We provide best quality courses. Learn more about us." />
-              <Feedback image="/assets/avatar.svg" name="Kyaw Kyaw" feedback="A Myanmar(Burma) based AI and IT training school.We provide best quality courses. Learn more about us." />
-              <Feedback image="/assets/avatar.svg" name="Kyaw Kyaw" feedback="A Myanmar(Burma) based AI and IT training school.We provide best quality courses. Learn more about us." />
-              <Feedback image="/assets/avatar.svg" name="Kyaw Kyaw" feedback="A Myanmar(Burma) based AI and IT training school.We provide best quality courses. Learn more about us." />
+              {
+                feedbacks.map(feedback => <Feedback key={feedback.image} image={feedback.image} name={feedback.name} feedback={feedback.text} />)
+              }
             </div>
           </div>
         </div>

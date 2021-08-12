@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import contacts from '../../data/contacts'
 
 export default function About() {
+
+    const { email, phone } = contacts
+
     return (
         <div className="flex flex-col justify-between min-h-screen bg-white">
             <Head>
@@ -19,8 +23,8 @@ export default function About() {
                         We'd love to hear from you
                     </h2>
                     <p className="text-center font-medium text-black text-lg md:text-xl tracking-wide max-w-xl m-auto">
-                        Drop an email at <a href="mailto:simboloit@gmail.com" style={{ color: "blue" }}>simboloit@gmail.com</a> or
-                        <br /><br />Call <a href="tel:+959951716847" style={{ color: "blue" }}>+959951716847</a>
+                        Drop an email at <a href={`mailto:${email}`} style={{ color: "blue" }}>{email}</a> or
+                        <br /><br />Call <a href={`tel:${phone}`} style={{ color: "blue" }}>{phone}</a>
                     </p>
                 </div>
             </div>

@@ -3,8 +3,18 @@ import Header from '../../components/Header'
 import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import Member from '../../components/Member'
+import client from '../../client'
+import contacts from '../../data/contacts'
 
-export default function About() {
+export async function getStaticProps() {
+    const members = await client.fetch(`*[_type == "member"] {"image": image.asset -> url, ...} | order(_createdAt desc)`)
+    return { props: { members } }
+}
+
+export default function About({ members }) {
+
+    const { memberForm } = contacts
+
     return (
         <div className="flex flex-col justify-between min-h-screen bg-gray">
             <Head>
@@ -22,7 +32,7 @@ export default function About() {
                     </h1>
                     <h3 className="mt-10 text-center font-medium text-black text-lg md:text-xl tracking-wide">
                         Want to join us? &nbsp;
-                        <a href="#" target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
+                        <a href={memberForm} target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
                             Fill this form
                         </a>
                     </h3>
@@ -66,18 +76,13 @@ export default function About() {
                         Meet Our Team
                     </h1>
                     <div className="max-w-6xl m-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
-                        <Member name="Phyo Thu Htet" image="assets/avatar.svg" role="Founder & Instructor" />
+                        {
+                            members.map(member => <Member name={member.name} image={member.image} role={member.role} />)
+                        }
                     </div>
                     <h3 className="mt-12 text-center font-medium text-black text-lg md:text-xl tracking-wide">
                         Want to join us? &nbsp;
-                        <a href="#" target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
+                        <a href={memberForm} target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
                             Fill this form
                         </a>
                     </h3>

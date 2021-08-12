@@ -3,14 +3,37 @@ import Header from '../../components/Header'
 import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import CourseOutline from '../../components/CourseOutline'
+import client from '../../client'
 
-const items = ['Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing', 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing', 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing', 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing', 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing']
+export async function getStaticPaths() {
 
-export default function Course() {
+    const courses = await client.fetch(`*[_type == "course"] {slug}`)
+
+    const paths = courses
+        .map(value => ({
+            params: { slug: value.slug }
+        }))
+
+    return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }) {
+    const { slug = "" } = params
+
+    const course = await client.fetch(`
+    *[_type == "course" && slug == $slug][0] {instructor{"instructorImage":instructorImage.asset -> url, ...}, ...}`, { slug })
+
+    return { props: { course } }
+}
+
+export default function Course({ course }) {
+
+    const { title, form, outline, detail, instructor, feeAndDuration, time } = course
+
     return (
         <div className="flex flex-col justify-between min-h-screen bg-gray">
             <Head>
-                <title>Símbolo - Artificial Intelligence Course</title>
+                <title>Símbolo - {title}</title>
                 <meta name="description" content="Simbolo - AI & IT school in Myanmar" />
             </Head>
             <div>
@@ -20,9 +43,9 @@ export default function Course() {
                 {/* Course Title*/}
                 <div className="bg-gray py-14 px-8">
                     <h1 className="mb-10 text-center font-black text-black text-3xl lg:text-4xl xl:text-5xl tracking-wide">
-                        Artificial Intelligence Course
+                        {title}
                     </h1>
-                    <a href="#" target="_blank" className="bg-black text-white py-5 px-10 font-bold text-lg md:text-xl tracking-wide
+                    <a href={form} target="_blank" className="bg-black text-white py-5 px-10 font-bold text-lg md:text-xl tracking-wide
               block w-max rounded-md shadow-2xl m-auto">
                         Register Now
                     </a>
@@ -34,10 +57,11 @@ export default function Course() {
                         Course Outline
                     </h3>
                     <div className="max-w-6xl m-auto space-y-10">
-                        <CourseOutline name="Artificial Intelligence Basics" items={items} open={true} />
-                        <CourseOutline name="Machine Learning" items={items} />
-                        <CourseOutline name="Deep Learning" items={items} />
-                        <CourseOutline name="Natural Language Processing" items={items} />
+                        {
+                            outline.map((value, index) =>
+                                <CourseOutline name={value.itemTitle} items={value.subItems} open={!index && true} />
+                            )
+                        }
                     </div>
                     {/* Course Details */}
                     <h3 className="mt-16 mb-5 text-center font-black text-black text-2xl md:text-3xl  tracking-wide">
@@ -45,25 +69,25 @@ export default function Course() {
                     </h3>
                     <div className="max-w-6xl m-auto">
                         <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore
+                            {detail}
                         </p>
                     </div>
                     {/* Instructor */}
-                    <img src="../assets/avatar.svg" alt="instructor" className="block m-auto mt-16 w-40 h-40 rounded-full" />
+                    <img src={instructor.instructorImage} alt="instructor" className="block m-auto mt-16 w-40 h-40 rounded-full" />
                     <div className="max-w-6xl m-auto">
                         <h3 className="font-black mt-10 mb-5 text-black text-lg md:text-xl text-center tracking-wide">
-                            Instrustor: Phyo Thu Htet
+                            Instrustor: {instructor.instructorName}
                         </h3>
                         <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            {instructor.instructorAbout}
                         </p>
                     </div>
                     {/* More Info */}
                     <div className="m-auto w-full md:w-2/3 mt-10 bg-gray text-center py-10 px-5 space-y-5 rounded-2xl
                     font-black text-black text-lg md:text-xl tracking-wide">
-                        <h3>Course fee: 30000 MMKs. Estimated Duration: 2 Months</h3>
-                        <h3>Time: Every Saturday, Sunday (9am - 10:30am)</h3>
-                        <h3>Next Batch will be opened soon. Please fill <a href="#" target="_blank" style={{ color: "blue", textDecoration: "underline" }}>this form</a> to register.</h3>
+                        <h3>{feeAndDuration}</h3>
+                        <h3>{time}</h3>
+                        <h3>Next Batch will be opened soon. Please fill <a href={form} target="_blank" style={{ color: "blue", textDecoration: "underline" }}>this form</a> to register.</h3>
                     </div>
                 </div>
             </div>
