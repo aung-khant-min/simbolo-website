@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Header from '../../components/Header'
-import GetInTouch from '../../components/GetInTouch'
+// import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import Course from '../../components/Course'
 import client from '../../client'
 
 export async function getStaticProps() {
-    const courses = await client.fetch(`*[_type == "course"] {title, slug, description} | order(_createdAt desc)`)
+    const courses = await client.fetch(`*[_type == "course"] {title, slug, description,"image":image.asset -> url} | order(_createdAt asc)`)
     return { props: { courses } }
 }
 
@@ -31,9 +31,17 @@ export default function Courses({ courses }) {
                             <span className="text-red">#</span>AIforGood <span className="text-red">#</span>ITforGood
                         </h3>
                     </div>
-                    <div className="space-y-10">
+                    <div className="space-y-20 mb-20 md:space-y-28 md:mb-28">
                         {
-                            courses.map(course => <Course key={course.slug} name={course.title} description={course.description} slug={course.slug} />)
+                            courses.map(course =>
+                                <Course
+                                    key={course.slug}
+                                    name={course.title}
+                                    description={course.description}
+                                    slug={course.slug}
+                                    image={course.image}
+                                />
+                            )
                         }
                     </div>
                 </div>
@@ -41,7 +49,7 @@ export default function Courses({ courses }) {
 
             <div>
                 {/* Get In Touch Section */}
-                <GetInTouch />
+                {/* <GetInTouch /> */}
 
                 {/* Footer Section */}
                 <Footer />

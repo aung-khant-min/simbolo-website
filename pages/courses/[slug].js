@@ -59,7 +59,12 @@ export default function Course({ course }) {
                     <div className="max-w-6xl m-auto space-y-10">
                         {
                             outline.map((value, index) =>
-                                <CourseOutline name={value.itemTitle} items={value.subItems} open={!index && true} />
+                                <CourseOutline
+                                    key={index}
+                                    name={value.itemTitle}
+                                    items={value.subItems}
+                                    open={!index && true}
+                                />
                             )
                         }
                     </div>

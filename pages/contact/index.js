@@ -19,14 +19,23 @@ export default function About() {
                 <Header />
 
                 {/* Contact Section */}
-                <div className="px-8 py-8">
-                    <h2 className="my-10 xl:my-20 text-center font-black text-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
-                        We'd love to hear from you
-                    </h2>
-                    <p className="text-center font-medium text-black text-lg md:text-xl tracking-wide max-w-xl m-auto">
-                        Drop an email at <a href={`mailto:${email}`} style={{ color: "blue" }}>{email}</a> or
-                        <br /><br />Call <a href={`tel:${phone}`} style={{ color: "blue" }}>{phone}</a>
-                    </p>
+                <div className="bg-white px-8">
+                    <div className="max-w-6xl m-auto flex flex-col items-center justify-end
+         md:flex-row md:justify-between pb-5"
+                        style={{ height: "90vh", minHeight: "650px", maxHeight: "700px" }}>
+                        <div className=" text-center md:text-left md:w-1/2 ">
+                            <h2 className="mb-7 text-center font-black text-black text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
+                                We'd love to hear <br /> from you
+                            </h2>
+                            <p className="mb-5 text-center font-medium text-black text-lg md:text-xl tracking-wide max-w-xl m-auto">
+                                Drop an email at <a href={`mailto:${email}`} style={{ color: "blue" }}>{email}</a> or
+                            </p>
+                            <p className="text-center font-medium text-black text-lg md:text-xl tracking-wide max-w-xl m-auto">
+                                Call <a href={`tel:${phone}`} style={{ color: "blue" }}>{phone}</a>
+                            </p>
+                        </div>
+                        <img src="/assets/contact.svg" alt="contact" className="w-4/5 my-12 max-w-xs md:max-w-none md:w-2/5 md:my-0" />
+                    </div>
                 </div>
             </div>
 

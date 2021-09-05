@@ -11,7 +11,7 @@ const MobileNav = () => {
     }
 
     return (
-        <div className="md:hidden">
+        <div className="lg:hidden">
             <button
                 type="button"
                 className="w-9 h-9 ml-1 mr-1 focus:outline-none"
@@ -44,6 +44,9 @@ const MobileNav = () => {
                 ease-in-out duration-300 ${navShow ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <nav className="flex flex-col text-lg text-black">
+                    <Link href="/" >
+                        <a className="p-5 text-center border-b border-black">HOME</a>
+                    </Link>
                     <Link href="/courses" >
                         <a className="p-5 text-center border-b border-black">COURSES</a>
                     </Link>

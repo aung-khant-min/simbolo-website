@@ -14,9 +14,12 @@ function Header() {
                     </Link>
                 </div>
                 <div className="flex items-center justify-end">
-                    <nav className="hidden md:flex justify-between items-center text-lg font-medium text-black">
+                    <nav className="hidden lg:flex justify-between items-center text-lg font-medium text-black">
+                        <Link href="/" >
+                            <a >HOME</a>
+                        </Link>
                         <Link href="/courses" >
-                            <a >COURSES</a>
+                            <a className="ml-16">COURSES</a>
                         </Link>
                         <Link href="/about" >
                             <a className="ml-16">ABOUT</a>
