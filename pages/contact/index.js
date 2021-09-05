@@ -21,8 +21,7 @@ export default function About() {
                 {/* Contact Section */}
                 <div className="bg-white px-8">
                     <div className="max-w-6xl m-auto flex flex-col items-center justify-end
-         md:flex-row md:justify-between pb-5"
-                        style={{ height: "90vh", minHeight: "650px", maxHeight: "700px" }}>
+         md:flex-row md:justify-between py-14">
                         <div className=" text-center md:text-left md:w-1/2 ">
                             <h2 className="mb-7 text-center font-black text-black text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
                                 We'd love to hear <br /> from you
