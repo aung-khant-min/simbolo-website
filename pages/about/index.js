@@ -28,8 +28,8 @@ export default function About({ members }) {
 
                 {/* About Section */}
                 <div className="bg-white py-14 px-8">
-                    <h1 className=" text-center font-black text-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
-                        Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing
+                    <h1 style={{ lineHeight: "120%" }} className=" text-center font-black text-black text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-wide max-w-xl m-auto">
+                        Símbolo, Myanmar(Burma) based AI and IT training school
                     </h1>
                     <h3 className="mt-10 text-center font-medium text-black text-lg md:text-xl tracking-wide">
                         Want to join us? &nbsp;
@@ -46,7 +46,7 @@ export default function About({ members }) {
                                 Story Of Símbolo
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                A Myanmar(Burma) based AI and IT training school. 
+                                A Myanmar(Burma) based AI and IT training school.
                             </p>
                         </div>
                         <div>
@@ -66,11 +66,7 @@ export default function About({ members }) {
                                 Values
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                Diversity <br>
-                                Inclusiveness <br>
-                                Ethnicity <br>
-                                Quality <br>
-                                Innovation and Creativity
+                                Diversity, Inclusiveness, Ethnicity, Quality, Innovation and Creativity
                             </p>
                         </div>
                     </div>
