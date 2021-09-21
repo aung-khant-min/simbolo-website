@@ -46,7 +46,7 @@ export default function About({ members }) {
                                 Story Of Símbolo
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit, sed do eiusmod tempor incididunt ut labore
+                                A Myanmar(Burma) based AI and IT training school. 
                             </p>
                         </div>
                         <div>
@@ -54,19 +54,23 @@ export default function About({ members }) {
                                 Mission
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                To distribute AI and IT technologies to Myanmar and produce professionals who can use AI and IT systematically and ethically
                             </p>
                             <h2 className="mt-10 mb-2 font-black text-black text-xl md:text-2xl  tracking-wide">
                                 Vision
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                To Introduce Inclusiveness Education of AI and IT in Myanmar
                             </p>
                             <h2 className="mt-10 mb-2 font-black text-black text-xl md:text-2xl  tracking-wide">
                                 Values
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                Diversity <br>
+                                Inclusiveness <br>
+                                Ethnicity <br>
+                                Quality <br>
+                                Innovation and Creativity
                             </p>
                         </div>
                     </div>
