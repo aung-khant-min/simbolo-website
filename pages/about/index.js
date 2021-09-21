@@ -76,7 +76,7 @@ export default function About({ members }) {
                     <h1 className="mb-12 md:mb-20 text-center font-black text-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide max-w-xl m-auto">
                         Meet Our Team
                     </h1>
-                    <div className="max-w-6xl m-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="max-w-6xl m-auto flex justify-center flex-wrap">
                         {
                             members.map(member => <Member name={member.name} image={member.image} role={member.role} />)
                         }

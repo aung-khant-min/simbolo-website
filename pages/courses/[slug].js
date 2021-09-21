@@ -4,6 +4,7 @@ import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import CourseOutline from '../../components/CourseOutline'
 import client from '../../client'
+import * as Showdown from 'showdown'
 
 export async function getStaticPaths() {
 
@@ -28,7 +29,14 @@ export async function getStaticProps({ params }) {
 
 export default function Course({ course }) {
 
-    const { title, form, outline, detail, instructor, feeAndDuration, time } = course
+    const { title, form, outline, detail, instructor, feeAndDuration, time, prerequisites } = course
+
+    const converter = new Showdown.Converter({
+        tables: true,
+        simplifiedAutoLink: true,
+        strikethrough: true,
+        tasklists: true
+    })
 
     return (
         <div className="flex flex-col justify-between min-h-screen bg-gray">
@@ -73,19 +81,25 @@ export default function Course({ course }) {
                         Course Details
                     </h3>
                     <div className="max-w-6xl m-auto">
-                        <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
-                            {detail}
-                        </p>
+                        <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(detail) }} className="courseContent m-auto text-justify w-full md:w-2/3 font-medium text-black text-lg md:text-xl tracking-wide">
+                        </div>
+                    </div>
+                    {/* Course Prerequsites */}
+                    <h3 className="mt-16 mb-5 text-center font-black text-black text-2xl md:text-3xl  tracking-wide">
+                        Prerequisites
+                    </h3>
+                    <div className="max-w-6xl m-auto">
+                        <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(prerequisites) }} className="courseContent m-auto text-justify w-full md:w-2/3 font-medium text-black text-lg md:text-xl  tracking-wide">
+                        </div>
                     </div>
                     {/* Instructor */}
-                    <img src={instructor.instructorImage} alt="instructor" className="block m-auto mt-16 w-40 h-40 rounded-full" />
+                    <img src={instructor.instructorImage} alt="instructor" className="block m-auto mt-16 w-40 h-40 md:w-56 md:h-56 rounded-full" />
                     <div className="max-w-6xl m-auto">
-                        <h3 className="font-black mt-10 mb-5 text-black text-lg md:text-xl text-center tracking-wide">
+                        <h3 className="font-black mt-10 mb-10 text-black text-lg md:text-xl text-center tracking-wide">
                             Instrustor: {instructor.instructorName}
                         </h3>
-                        <p className="m-auto w-full md:w-2/3 text-center font-medium text-black text-lg md:text-xl  tracking-wide">
-                            {instructor.instructorAbout}
-                        </p>
+                        <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(instructor.instructorAbout) }} className="courseContent m-auto text-justify w-full md:w-2/3 font-medium text-black text-lg md:text-xl  tracking-wide">
+                        </div>
                     </div>
                     {/* More Info */}
                     <div className="m-auto w-full md:w-2/3 mt-10 bg-gray text-center py-10 px-5 space-y-5 rounded-2xl
