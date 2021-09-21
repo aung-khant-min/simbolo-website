@@ -46,7 +46,7 @@ export default function About({ members }) {
                                 Story Of Símbolo
                             </h2>
                             <p className=" font-medium text-black text-lg md:text-xl tracking-wide">
-                                A Myanmar(Burma) based AI and IT training school. We provide best quality courses. Learn more about us. Simbolo is a Spanish word meaning symbol. Simbolo was founded on May 6, 2021. Before that, Simbolo was used as a personal blog of Ko Phyo Thu Htet to deliver AI, IT, and his experiences. Students around the country are accessing education services from Simbolo. We deliver Here, in Símbolo, we love and cherish diversity. We do prohibit hate speech. We do prohibit offensive languages.
+                                A Myanmar(Burma) based AI and IT training school. 
                             </p>
                         </div>
                         <div>
