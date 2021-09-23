@@ -4,7 +4,7 @@ import GetInTouch from '../../components/GetInTouch'
 import Footer from '../../components/Footer'
 import Member from '../../components/Member'
 import client from '../../client'
-import contacts from '../../data/contacts'
+//import contacts from '../../data/contacts'
 
 export async function getStaticProps() {
     const members = await client.fetch(`*[_type == "member"] {"image": image.asset -> url, ...} | order(_createdAt desc)`)
@@ -13,7 +13,7 @@ export async function getStaticProps() {
 
 export default function About({ members }) {
 
-    const { memberForm } = contacts
+    //const { memberForm } = contacts
 
     return (
         <div className="flex flex-col justify-between min-h-screen bg-gray">
@@ -31,12 +31,12 @@ export default function About({ members }) {
                     <h1 style={{ lineHeight: "120%" }} className=" text-center font-black text-black text-xl md:text-2xl lg:text-3xl xl:text-4xl tracking-wide max-w-xl m-auto">
                         Símbolo, Myanmar(Burma) based AI and IT training school
                     </h1>
-                    <h3 className="mt-10 text-center font-medium text-black text-lg md:text-xl tracking-wide">
+                    {/*<h3 className="mt-10 text-center font-medium text-black text-lg md:text-xl tracking-wide">
                         Want to join us? &nbsp;
                         <a href={memberForm} target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
                             Fill this form
                         </a>
-                    </h3>
+                    </h3>*/}
                 </div>
 
                 <div className="bg-gray  py-14 px-8">
@@ -81,11 +81,11 @@ export default function About({ members }) {
                             members.map(member => <Member name={member.name} image={member.image} role={member.role} />)
                         }
                     </div>
-                    <h3 className="mt-12 text-center font-medium text-black text-lg md:text-xl tracking-wide">
+                    {/*<h3 className="mt-12 text-center font-medium text-black text-lg md:text-xl tracking-wide">
                         Want to join us? &nbsp;
                         <a href={memberForm} target="_blank" style={{ color: "blue", textDecoration: "underline" }}>
                             Fill this form
-                        </a>
+                        </a>*/}
                     </h3>
                 </div>
             </div>
