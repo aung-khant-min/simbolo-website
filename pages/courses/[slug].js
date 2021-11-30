@@ -66,7 +66,7 @@ export default function Course({ course }) {
                     </h3>
                     <div className="max-w-6xl m-auto space-y-10">
                         {
-                            outline.map((value, index) =>
+                            outline && outline.map((value, index) =>
                                 <CourseOutline
                                     key={index}
                                     name={value.itemTitle}
